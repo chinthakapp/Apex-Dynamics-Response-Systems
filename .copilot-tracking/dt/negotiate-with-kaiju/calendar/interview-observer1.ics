@@ -1,0 +1,13 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NegotiateWithKaiju//EN
+BEGIN:VEVENT
+UID:interview-observer1-20260917@negotiate-with-kaiju
+DTSTAMP:20260915T120000Z
+DTSTART:20260917T170000Z
+DTEND:20260917T173000Z
+SUMMARY:Interview — Observer 1 — Kaiju Trial Prep
+LOCATION:Hybrid (on-site or WebRTC)
+DESCRIPTION:30-minute interview for observer role briefing and evidence capture responsibilities. Consent required.
+END:VEVENT
+END:VCALENDAR

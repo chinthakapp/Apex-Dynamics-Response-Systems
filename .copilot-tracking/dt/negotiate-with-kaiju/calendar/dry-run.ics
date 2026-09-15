@@ -1,0 +1,13 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NegotiateWithKaiju//EN
+BEGIN:VEVENT
+UID:dry-run-20260916@negotiate-with-kaiju
+DTSTAMP:20260915T120000Z
+DTSTART:20260916T170000Z
+DTEND:20260916T180000Z
+SUMMARY:Dry-run — light-trial-01 (Negotiate with Kaiju)
+LOCATION:Staging area (approx): 47.809000, -122.121513
+DESCRIPTION:Dry-run for evidence capture and abort procedure. Bring consent forms and recording devices. See packet attachments.
+END:VEVENT
+END:VCALENDAR

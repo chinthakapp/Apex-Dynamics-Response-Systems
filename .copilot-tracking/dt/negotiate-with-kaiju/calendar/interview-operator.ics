@@ -1,0 +1,13 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NegotiateWithKaiju//EN
+BEGIN:VEVENT
+UID:interview-operator-20260916@negotiate-with-kaiju
+DTSTAMP:20260915T120000Z
+DTSTART:20260916T170000Z
+DTEND:20260916T173000Z
+SUMMARY:Interview — Operator (Tim Cook) — Kaiju Trial Prep
+LOCATION:Hybrid (on-site or WebRTC)
+DESCRIPTION:30-minute interview covering operator readiness and device checks. Consent form required.
+END:VEVENT
+END:VCALENDAR

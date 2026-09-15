@@ -1,0 +1,13 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//NegotiateWithKaiju//EN
+BEGIN:VEVENT
+UID:interview-safety-20260916@negotiate-with-kaiju
+DTSTAMP:20260915T120000Z
+DTSTART:20260916T180000Z
+DTEND:20260916T183000Z
+SUMMARY:Interview — Safety Officer — Kaiju Trial Prep
+LOCATION:Hybrid (on-site or WebRTC)
+DESCRIPTION:30-minute interview to confirm safety authority, abort procedure, and permit status. Consent required.
+END:VEVENT
+END:VCALENDAR
