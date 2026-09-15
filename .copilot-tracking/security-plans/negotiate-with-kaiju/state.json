@@ -1,0 +1,25 @@
+{
+  "projectSlug": "negotiate-with-kaiju",
+  "securityPlanFile": ".copilot-tracking/security-plans/negotiate-with-kaiju/security-plan.md",
+  "currentPhase": 2,
+  "entryMode": "capture",
+  "bucketsCompleted": [],
+  "standardsMapped": [],
+  "riskSurfaceStarted": true,
+  "handoffGenerated": { "ado": false, "github": false },
+  "referencesProcessed": [
+    ".copilot-tracking/dt/negotiate-with-kaiju/PRD.md",
+    ".copilot-tracking/dt/negotiate-with-kaiju/diagrams.md"
+  ],
+  "nextActions": [
+    "Review backlog items and assign owners",
+    "Run evidence smoke-test in controlled environment",
+    "Harden MinIO and field-controller access controls"
+  ],
+  "userPreferences": { "autonomyTier": "partial" },
+  "raiEnabled": false,
+  "raiScope": "none",
+  "raiTier": "none",
+  "raiPlannerDispatched": false,
+  "aiComponents": []
+}
