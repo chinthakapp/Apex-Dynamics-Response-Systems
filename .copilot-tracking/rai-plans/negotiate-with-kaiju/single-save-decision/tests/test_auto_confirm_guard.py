@@ -2,7 +2,15 @@ import uuid
 import json
 import pytest
 
-from .mocks.mock_minio import MockMinIO
+import importlib.util
+import pathlib
+
+# load MockMinIO module from tests/mocks without requiring package imports
+tests_dir = pathlib.Path(__file__).parent
+spec = importlib.util.spec_from_file_location("mock_minio", str(tests_dir / "mocks" / "mock_minio.py"))
+mock_mod = importlib.util.module_from_spec(spec)
+spec.loader.exec_module(mock_mod)
+MockMinIO = mock_mod.MockMinIO
 
 # Simple in-memory mocks to simulate the policy/harness
 
