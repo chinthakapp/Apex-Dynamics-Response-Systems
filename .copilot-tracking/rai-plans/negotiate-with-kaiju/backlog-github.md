@@ -141,14 +141,15 @@ security_cross_ref: WI-SEC-006
 
 ### Implementation
 
-Build the collector described in the Layer 5 spec; add anti-replay sequence numbers to emitted events per T-RAI-006 mitigation.
+Build the collector described in the Layer 5 spec; add anti-replay sequence numbers to emitted events per T-RAI-006 mitigation. Alert evaluation and a stakeholder-readable summary are implemented in `tests/mocks/alerting.py` (`evaluate_alerts`) and `tests/mocks/dashboard.py` (`build_summary`/`render_markdown`); still need a real publish path and a live alerting backend (PagerDuty/Slack/Grafana) to consume these functions in production.
 
 ### Acceptance Criteria
 
 * [x] Telemetry events emitted for every `decision_policy()` outcome (in-memory `TelemetryEmitter` at `tests/mocks/telemetry.py`)
 * [x] Anti-replay sequence numbers present on each event
-* [ ] Dashboard or alert rule for `missing_audit_record` and `low_confidence` outcomes
+* [x] Dashboard or alert rule for `missing_audit_record` and `low_confidence` outcomes (`alerting.py` + `dashboard.py`, also covers `invalid_audit_signature` and repeated-allow detection)
 * [ ] Replace in-memory sink with real publish path to `logs/inference/central/` over mTLS
+* [ ] Wire `evaluate_alerts` output into a live alerting backend (PagerDuty/Slack/Grafana)
 
 > **Note** — The author created this content with assistance from AI. All outputs should be reviewed and validated before use.
 > - [ ] Reviewed and validated by a qualified human reviewer
