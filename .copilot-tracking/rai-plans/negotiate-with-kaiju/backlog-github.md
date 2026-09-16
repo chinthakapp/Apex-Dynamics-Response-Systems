@@ -29,13 +29,14 @@ security_cross_ref: WI-SEC-007
 
 ### Implementation
 
-Deploy MinIO (or equivalent S3-compatible store) with object-lock enabled in compliance mode for the `evidence` bucket. Update `decision_policy()` integration to call the real client instead of the in-memory mock used in `test_auto_confirm_guard.py`.
+Deploy MinIO (or equivalent S3-compatible store) with object-lock enabled in compliance mode for the `evidence` bucket. `tests/mocks/evidence_store.py` provides a `MinIOEvidenceStore` client implementing `ensure_bucket` (creates with `object_lock=True`), `put_object` (GOVERNANCE-mode retention, 365-day default), `get_object`, and `list_objects` against the real `minio` SDK, contract-tested with a mocked client (no live server required for tests). Remaining work: provision a live MinIO endpoint and swap `decision_policy()`'s `minio=MockMinIO()` for `MinIOEvidenceStore` in production configuration.
 
 ### Acceptance Criteria
 
-* [ ] Real MinIO client wired behind the same interface as `MockMinIO`
-* [ ] Object-lock/WORM verified via integration test
+* [x] Real MinIO client wired behind the same interface as `MockMinIO` (`MinIOEvidenceStore`)
+* [ ] Object-lock/WORM verified via integration test against a live MinIO endpoint (contract tests use a mocked client only)
 * [ ] Retention policy documented in `evidence-register.md`
+* [ ] `decision_policy()` switched from `MockMinIO` to `MinIOEvidenceStore` in production config
 
 > **Note** — The author created this content with assistance from AI. All outputs should be reviewed and validated before use.
 > - [ ] Reviewed and validated by a qualified human reviewer

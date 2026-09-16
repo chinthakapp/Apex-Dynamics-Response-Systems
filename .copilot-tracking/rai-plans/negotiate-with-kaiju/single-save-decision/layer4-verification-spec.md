@@ -27,3 +27,4 @@ Implementation status (2026-09-16)
 - INV-1/INV-2/INV-3 covered by `tests/test_auto_confirm_guard.py` (8/8 passing).
 - Signature verification implemented via `tests/mocks/evidence_signing.py` (HMAC-SHA256 stand-in for cosign verify-blob); new outcome `invalid_audit_signature` added. Swap for real cosign/Sigstore verification before production (RAI backlog {{RAI-TEMP-2}}).
 - Real MinIO with object-lock still outstanding (RAI backlog {{RAI-TEMP-1}}); `MockMinIO` remains in-memory only.
+- `MinIOEvidenceStore` (tests/mocks/evidence_store.py) implements the production client against the real `minio` SDK with GOVERNANCE-mode object-lock retention on `put_object`, verified by 6 contract tests against a mocked `Minio` client (`test_evidence_store.py`, 14/14 total passing). Still requires a live MinIO endpoint (`MINIO_ENDPOINT`/`MINIO_ACCESS_KEY`/`MINIO_SECRET_KEY`) to run end-to-end; not yet wired into `decision_policy()` in place of `MockMinIO`.
