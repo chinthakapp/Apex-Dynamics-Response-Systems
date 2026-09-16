@@ -70,9 +70,10 @@ Extend `decision_policy()` to call a signature-verification step against the obj
 
 ### Acceptance Criteria
 
-* [ ] Signature verification function added and unit tested
-* [ ] New `invalid_audit_signature` outcome covered by a test case
+* [x] Signature verification function added and unit tested (HMAC-SHA256 stand-in at `tests/mocks/evidence_signing.py`)
+* [x] New `invalid_audit_signature` outcome covered by a test case
 * [ ] Verification failure path logged to telemetry
+* [ ] Replace HMAC stand-in with real cosign/Sigstore verify-blob call before production
 
 > **Note** — The author created this content with assistance from AI. All outputs should be reviewed and validated before use.
 > - [ ] Reviewed and validated by a qualified human reviewer
@@ -143,9 +144,10 @@ Build the collector described in the Layer 5 spec; add anti-replay sequence numb
 
 ### Acceptance Criteria
 
-* [ ] Telemetry events emitted for every `decision_policy()` outcome
-* [ ] Anti-replay sequence numbers present on each event
+* [x] Telemetry events emitted for every `decision_policy()` outcome (in-memory `TelemetryEmitter` at `tests/mocks/telemetry.py`)
+* [x] Anti-replay sequence numbers present on each event
 * [ ] Dashboard or alert rule for `missing_audit_record` and `low_confidence` outcomes
+* [ ] Replace in-memory sink with real publish path to `logs/inference/central/` over mTLS
 
 > **Note** — The author created this content with assistance from AI. All outputs should be reviewed and validated before use.
 > - [ ] Reviewed and validated by a qualified human reviewer

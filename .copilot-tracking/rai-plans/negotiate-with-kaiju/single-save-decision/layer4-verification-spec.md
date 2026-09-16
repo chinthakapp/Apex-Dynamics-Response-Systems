@@ -22,3 +22,8 @@ Sample test (pseudocode)
 - THEN assert that `emitted_command` == `null` and `decision_outcome` == `requires_approval`
 
 Acceptance: All INV-* tests green in CI before enabling auto-actuation in staging.
+
+Implementation status (2026-09-16)
+- INV-1/INV-2/INV-3 covered by `tests/test_auto_confirm_guard.py` (8/8 passing).
+- Signature verification implemented via `tests/mocks/evidence_signing.py` (HMAC-SHA256 stand-in for cosign verify-blob); new outcome `invalid_audit_signature` added. Swap for real cosign/Sigstore verification before production (RAI backlog {{RAI-TEMP-2}}).
+- Real MinIO with object-lock still outstanding (RAI backlog {{RAI-TEMP-1}}); `MockMinIO` remains in-memory only.

@@ -28,3 +28,8 @@ Monitoring & Alerts
 - Alert on repeated high-confidence changes across short windows (possible poisoning).
 
 Next: implement mock MinIO and pytest harness under `tests/` as described in Layer 4.
+
+Implementation status (2026-09-16)
+- `tests/mocks/telemetry.py` implements an in-memory `TelemetryEmitter` matching this schema (decision_id, timestamp, aggregated_confidence, decision, impact_level, audit_ref) plus a monotonically increasing `sequence` field as the anti-replay control per T-RAI-006.
+- `decision_policy()` accepts an optional `telemetry` argument and emits one event per invocation; validated by `test_telemetry_emits_event_per_decision_with_increasing_sequence`.
+- Outstanding: real publish path to `logs/inference/central/` over mTLS and durable sink (RAI backlog {{RAI-TEMP-4}}).
